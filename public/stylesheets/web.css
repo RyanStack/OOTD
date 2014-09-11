@@ -1,0 +1,118 @@
+#my-awesome-dropzone {
+  height: 200px;
+  width: 200px;
+  background-color: pink;
+  margin-left: 50px;
+  margin-top: 55px;
+  display: inline-block;
+  float: left;
+}
+
+/*.ng-file-drag-over-class {
+  height: 200px;
+  width: 200px;
+  background-color: pink;
+  margin-left: 50px;
+  margin-top: 55px;
+  display: inline-block;
+  float: left;
+}*/
+
+.dropzone span {
+  /*display: none;*/
+}
+
+header {
+  font-family: "Brush Script MT", cursive;
+  text-align: center;
+  font-size: 30px;
+  padding-top: 5px;
+}
+
+h3 {
+  color: ghostwhite;
+  font-size: 25px;
+  font-weight: bolder;
+  padding-top: 85px;
+  text-align: center;
+}
+
+#picturezone {
+  border: 2px solid black;
+  border-radius: 4px;
+  display: block;
+  height: 250px;
+  width: 400px;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.individualPics {
+  height: 100%;
+  width: 100%;
+}
+
+#personZone {
+  border: 2px solid black;
+  border-radius: 4px;
+  display: inline-block;
+  height: 500px;
+  width: 500px;
+  float: right;
+  margin-right: 50px;
+  margin-top: 50px;
+  background-color: darkslategrey;
+}
+
+#comments {
+  display: block;
+  height: 150px;
+  border: 2px solid black;
+  width: 400px;
+  position: relative;
+  margin-left: 50px;
+  margin-top: 10px;
+}
+
+.nextBetch {
+  float: right;
+  text-decoration: none;
+  color: pink;
+  margin-right: 10px;
+  margin-top: 15px;
+  background-color: black;
+  height: 20px;
+  width: 125px;
+  text-align: center;
+  padding-top: 3px;
+  border-radius: 4px;
+}
+
+.nextBetch:hover {
+  background-color: grey;
+}
+
+.textarea {
+  margin-top: 215px
+}
+
+.button {
+  margin-left: 28px;
+  margin-top: 5px;
+}
+
+.textarea {
+  display: inline-block;
+  clear: left;
+  float: left;
+  margin-top: 0;
+  margin-bottom: 0px;
+  margin-left: 50px;
+}
+
+#submit {
+  display: inline-block;
+  clear: left;
+  float: left;
+  margin-left: 50px;
+}

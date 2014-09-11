@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/web.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/dropzone.css">
+  <script type="text/javascript" src="js/vendor/dropzone.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+
+
+</head>
+
+
+<body ng-app="PercentFitApp">
+  <header>PercentFit</header>
+
+  <div id ="personZone" ng-controller="PercentFitController as PercentCtrl">
+    <a class ="nextBetch" href ng-click="changePicNumber()">Next Betch >></a>
+    <div id="picturezone">
+      <img class="individualPics" ng-src="{{pics[picNumber].outfit}}" />
+    </div>
+    <div id="comments"></div>
+  </div>
+
+
+<form method="post" ng-submit="process()" class="dropzone"id="my-awesome-dropzone" ng-controller="PercentFitUpload">
+  <input type="submit" id="submit" value="Submit" />
+</form>
+<!-- <input type="submit" form="my-awesome-dropzone" id="submit"> -->
+
+
+
+
+
+
+ <!--  <input type="submit" id="submit" value="PercentFit It!" form="my-awesome-dropzone" /> -->
+
+
+
+  <script type="text/javascript" src="js/client/application.js"></script>
+  <script type="text/javascript" src="js/client/controller.js"></script>
+</body>
+</html>

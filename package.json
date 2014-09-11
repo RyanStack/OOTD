@@ -1,0 +1,31 @@
+{
+  "name": "Ryan-Stack",
+  "version": "0.0.1",
+  "description": "OOTD",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~4.8.8",
+    "body-parser": "~1.6.6",
+    "bson": "^0.2.12",
+    "underscore": "~1.7.0",
+    "mongodb-uri": "^0.9.7",
+    "mongoose": "3.8.x"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StackDaddy/OOTD.git"
+  },
+  "keywords": [
+    "Fashion"
+  ],
+  "author": "Ryan-Stack",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/StackDaddy/OOTD/issues"
+  },
+  "homepage": "https://github.com/StackDaddy/OOTD"
+}
