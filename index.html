@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html ng-app="PercentFitApp">
 <head>
+  <script type="text/javascript" src="http://code.angularjs.org/1.2.6/angular.min.js"></script>
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/web.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/dropzone.css">
   <script type="text/javascript" src="js/vendor/dropzone.js"></script>
-  <script type="text/javascript" src="http://code.angularjs.org/1.2.6/angular.min.js"></script>
 
 
 </head>
@@ -13,7 +15,7 @@
 
 <body ng-controller="UploadPrompter" id="container">
   <header>
-    <div id="header">
+    <div id="headerStack">
       <h3>PercentFit</h3>
     </div>
     <input type="button" value="PerfectFit It!" id="perfectFitIt"  ng-click="makeTint()" ></input>
@@ -68,7 +70,8 @@
 
 
 
-
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>"http:///maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"</script>
   <script type="text/javascript" src="js/client/application.js"></script>
   <script type="text/javascript" src="js/client/controller.js"></script>
   <script type="text/javascript" src="js/client/help.js"></script>
