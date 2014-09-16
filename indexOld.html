@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app="PercentFitApp">
+<head>
+  <script type="text/javascript" src="http://code.angularjs.org/1.2.6/angular.min.js"></script>
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/web.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/dropzone.css">
+  <script type="text/javascript" src="js/vendor/dropzone.js"></script>
+
+
+</head>
+
+
+<body ng-controller="UploadPrompter" id="container">
+  <header>
+    <div id="headerStack">
+      <h3>PercentFit</h3>
+    </div>
+    <input type="button" value="PerfectFit It!" id="perfectFitIt"  ng-click="makeTint()" ></input>
+    <div class="headerLabel">sign in</div>
+    <div class="headerLabel">sign up</div>
+  </header>
+  <div ng-class="{tint: isTint}">
+    <div id="holder">
+      <div id ="uploadOptions">
+        <h3 id="uploadHeader">Upload Outfit</h3>
+        <div id="compUpload"><input id="fileUploadB" type="file"></div>
+        <div id="dragUpload"><p>drag and drop</p></div>
+      </div>
+    </div>
+
+    <p id="upload" class="hidden">
+      <label>Drag & drop not supported, but you can still upload via this input field:
+        <br>
+        <input type="file">
+      </label>
+    </p>
+    <p id="filereader">File API & FileReader API not supported</p>
+    <p id="formdata">XHR2's FormData is not supported</p>
+    <p id="progress">XHR2's upload progress isn't supported</p>
+
+  </div>
+
+  <div id ="personZone" ng-controller="PercentFitController as PercentCtrl">
+    <!-- <div ng-class="{tint: isTint}"></div> -->
+    <a class ="nextBetch" href ng-click="changePicNumber()"> >></a>
+    <div id="picturezone">
+      <img class="individualPics" ng-src="{{pics[picNumber].outfit}}" />
+    </div>
+    <div id="comments"></div>
+  </div>
+
+
+<form ng-show="0" method="post" ng-submit="process()" class="dropzone"id="my-awesome-dropzone" ng-controller="PercentFitUpload">
+  <input type="submit" id="submit" value="Submit" />
+</form>
+
+
+
+ <!--  <input type="submit" id="submit" value="PercentFit It!" form="my-awesome-dropzone" /> -->
+
+
+
+
+
+
+
+
+
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>"http:///maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"</script>
+  <script type="text/javascript" src="js/client/application.js"></script>
+  <script type="text/javascript" src="js/client/controller.js"></script>
+  <script type="text/javascript" src="js/client/help.js"></script>
+</body>
+</html>

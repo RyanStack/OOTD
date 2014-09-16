@@ -23,31 +23,9 @@ body {
   float: left;
 }
 
-#perfectFitIt {
-  height: 100%;
-  width: 16%;
-  background-color: pink;
-  margin-left: 6%;
-  display: inline-block;
-  float: left;
-  font-family: "Brush Script MT", cursive;
-  font-size: 25px;
-  font-weight: bolder;
+#uploadOutfit {
+  background-color: pink !important;
 }
-
-#perfectFitIt:hover {
-  background-color: #E8B5BE;
-}
-
-/*.ng-file-drag-over-class {
-  height: 200px;
-  width: 200px;
-  background-color: pink;
-  margin-left: 50px;
-  margin-top: 55px;
-  display: inline-block;
-  float: left;
-}*/
 
 .dropzone span {
   /*display: none;*/
@@ -187,10 +165,13 @@ h3 {
     background: rgba(0, 0, 0, 0.85);
 }
 
+.navbar-brand {
+  color: pink !important;
+  font-family: "Brush Script MT", cursive !important;
+}
 
 
-
-// dropzone shit
+// dropzone
 
 article {
   display: none;
