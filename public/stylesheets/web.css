@@ -6,6 +6,11 @@ html {
 body {
   height: 100%;
   width: 100%;
+  background-color: black;
+}
+
+.container {
+  height: 100%;
 }
 
 #container {
@@ -27,8 +32,17 @@ body {
   background-color: pink !important;
 }
 
+.navbar-inverse {
+  border: none;
+  background-color: #2b2b2b;
+}
+
 .dropzone span {
   /*display: none;*/
+}
+
+.navPink {
+  color: pink !important;
 }
 
 header {
@@ -60,14 +74,33 @@ h3 {
   color: pink;
 }
 
+#leftColumn {
+  width: 60%;
+  height: 100%;
+  display: inline-block;
+  float: left;
+  margin-left: 3.3%;
+  margin-top: 1%;
+}
+
+#pictureTitle {
+  border: 2px solid black;
+  border-radius: 4px;
+  display: block;
+  height: 50px;
+  width: 100%;
+  color: grey;
+  text-align: center;
+  padding-top: 13px;
+}
+
 #picturezone {
   border: 2px solid black;
   border-radius: 4px;
   display: block;
   height: 250px;
-  width: 400px;
-  margin-left: 50px;
-  margin-top: 50px;
+  width: 100%;
+  margin-top: 2%;
 }
 
 .individualPics {
@@ -76,16 +109,29 @@ h3 {
 }
 
 #personZone {
+ border: 2px solid black;
+ border-radius: 4px;
+ display: block;
+ height: 100%;
+ width: 80%;
+ margin: auto;
+ background-color: #2b2b2b;
+ position: relative;
+}
+
+#retailLinks {
+  display: inline;
+  height: 382px;
+  width: 30%;
   border: 2px solid black;
   border-radius: 4px;
-  display: inline-block;
-  height: 500px;
-  width: 500px;
+  background-color: #2b2b2b;
   float: right;
-  margin-right: 50px;
-  margin-top: 50px;
-  background-color: grey;
-  position: relative;
+  margin-top: 5%;
+  margin-right: 3.3%;
+  color: grey;
+  text-align: center;
+  padding-top: 180px;
 }
 
 #personZoneCover {
@@ -103,12 +149,15 @@ h3 {
 
 #comments {
   display: block;
-  height: 150px;
+  height: 120px;
   border: 2px solid black;
-  width: 400px;
+  width: 100%;
   position: relative;
-  margin-left: 50px;
+/* margin-left: 50px; */
   margin-top: 10px;
+  color: grey;
+  text-align: center;
+  padding: 45px;
 }
 
 .nextBetch {
@@ -116,12 +165,11 @@ h3 {
   text-decoration: none;
   color: pink;
   margin-right: 10px;
-  margin-top: 15px;
+  margin-top: 1%;
   background-color: black;
   height: 20px;
   width: 125px;
   text-align: center;
-  padding-top: 3px;
   border-radius: 4px;
 }
 

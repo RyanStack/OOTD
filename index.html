@@ -31,7 +31,7 @@
 
   <body ng-controller="UploadPrompter">
 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-default navbar-inverse " role="navigation">
       <div class="container">
         <div class="navbar-header">
           <p class="navbar-brand">Perfect Fit</p>
@@ -41,61 +41,51 @@
             <li class="active" ng-click="makeTint()"><a id="uploadOutfit" href="#">Upload Outfit</a></li>
           </ul>
            <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">sign in</a></li>
-          <li><a href="#">sign up</a></li>
+          <li><a class="navPink" href="#">sign in</a></li>
+          <li><a class="navPink" href="#">sign up</a></li>
         </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
 
-
-
-
-
-
     <div class="container">
 
 
-        <h1>Perfect Fit</h1>
-        <div ng-class="{tint: isTint}">
-    <div id="holder">
-      <div id ="uploadOptions">
-        <h3 id="uploadHeader">Upload Outfit</h3>
-        <div id="compUpload"><input id="fileUploadB" type="file"></div>
-        <div id="dragUpload"><p>drag and drop</p></div>
+      <div ng-class="{tint: isTint}">
+        <div id="holder">
+          <div id ="uploadOptions">
+            <h3 id="uploadHeader">Upload Outfit</h3>
+            <div id="compUpload"><input id="fileUploadB" type="file"></div>
+            <div id="dragUpload"><p>drag and drop</p></div>
+          </div>
+        </div>
+
+        <p id="upload" class="hidden">
+          <label>Drag & drop not supported, but you can still upload via this input field:
+            <br>
+            <input type="file">
+          </label>
+        </p>
+        <p id="filereader">File API & FileReader API not supported</p>
+        <p id="formdata">XHR2's FormData is not supported</p>
+        <p id="progress">XHR2's upload progress isn't supported</p>
+
       </div>
-    </div>
 
-    <p id="upload" class="hidden">
-      <label>Drag & drop not supported, but you can still upload via this input field:
-        <br>
-        <input type="file">
-      </label>
-    </p>
-    <p id="filereader">File API & FileReader API not supported</p>
-    <p id="formdata">XHR2's FormData is not supported</p>
-    <p id="progress">XHR2's upload progress isn't supported</p>
+      <div id ="personZone" ng-controller="PercentFitController as PercentCtrl">
+        <!-- <div ng-class="{tint: isTint}"></div> -->
+        <a class ="nextBetch" href ng-click="changePicNumber()"> >></a>
+        <div id="leftColumn">
+          <div id="pictureTitle"> <-- Insert Fashion Question --></div>
+          <div id="picturezone">
+            <img class="individualPics" ng-src="{{pics[picNumber].outfit}}" />
+          </div>
+          <div id="comments"> <-- Insert Comments --> </div>
+        </div>
+        <div id="retailLinks"> <-- Retail Links --></div>
+      </div>
 
-  </div>
-
-  <div id ="personZone" ng-controller="PercentFitController as PercentCtrl">
-    <!-- <div ng-class="{tint: isTint}"></div> -->
-    <a class ="nextBetch" href ng-click="changePicNumber()"> >></a>
-    <div id="picturezone">
-      <img class="individualPics" ng-src="{{pics[picNumber].outfit}}" />
-    </div>
-    <div id="comments"></div>
-  </div>
-
-
-<form ng-show="0" method="post" ng-submit="process()" class="dropzone"id="my-awesome-dropzone" ng-controller="PercentFitUpload">
-  <input type="submit" id="submit" value="Submit" />
-</form>
-
-        <!-- body in here -->
-
-
-
+      <!-- body in here -->
     </div><!-- ENDS CONTAINER -->
 
 
