@@ -3,12 +3,13 @@ var express = require('express'),
     path = require('path'),
     database = require('./main'),
     busboy = require('connect-busboy'),
-    app = express();
-    // bodyParser = require('body-parser')
+    app = express(),
+    bodyParser = require('body-parser');
+    // dnd = require("angular-draganddrop")
 
 database.connectDb();
-app.use(busboy());
-// app.use(bodyParser.json())
+// app.use(busboy());
+app.use(bodyParser.json())
 
 
 app.use(express.static(path.join(__dirname, './uploads')));

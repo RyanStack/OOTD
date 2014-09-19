@@ -1,5 +1,5 @@
-
-            var holder = document.getElementById('holder'),
+            var hint = document.querySelector('#uploadHint') // non transfered
+            var holder = document.getElementById('holder'), // non transfered
                 tests = {
                     filereader: typeof FileReader != 'undefined',
                     dnd: 'draggable' in document.createElement('span'),
@@ -16,8 +16,8 @@
                     'image/jpeg': true,
                     'image/gif': true
                 },
-                progress = document.getElementById('uploadprogress'),
-                fileupload = document.getElementById('upload');
+                progress = document.getElementById('uploadprogress'), // non transfered
+                fileupload = document.getElementById('upload'); //  non transfered
 
             "filereader formdata progress".split(' ').forEach(function(api) {
                 if (tests[api] === false) {
@@ -37,8 +37,10 @@
                     var reader = new FileReader();
                     reader.onload = function(event) {
                         var image = new Image();
+                        image.className = "PerfectPic"
                         image.src = event.target.result;
                         image.width = 250; // a fake resize
+                        hint.style.display = "none"
                         holder.appendChild(image);
                     };
 
@@ -70,10 +72,19 @@
                     this.className = '';
                     e.preventDefault();
                     readfiles(e.dataTransfer.files);
+                    document.querySelector('#fashionQuestion').style.display = "block"
                 }
             } else {
                 fileupload.className = 'hidden';
                 fileupload.querySelector('input').onchange = function() {
                     readfiles(this.files);
                 };
+            }
+
+
+
+            document.querySelector('#submitQuestion').addEventListener("click", Upload)
+
+            var Upload = function() {
+
             }

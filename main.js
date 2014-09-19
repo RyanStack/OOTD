@@ -38,7 +38,7 @@ module.exports = {
     //configuring the Database Schema
 
     OOTDSchema = new mongoose.Schema(
-      { outfit: { type: String} });
+      { outfit: { type: String}, question: {type: String} });
 
     ImageModel = mongoose.model('Pics', OOTDSchema);
 
@@ -47,43 +47,27 @@ module.exports = {
 
   getImages: function(req, res, next) {
 
-    ImageModel.find({},
-      'outfit', // Columns to Return
-      {
-        skip:0, // Starting Row
-        limit:10, // Ending Row
-        sort:{
-        count: -1 //Sort by Date Added DESC
-        }
-      },
+    ImageModel.find({}).limit(20).exec(
       function (err, data) {
         if (err) {
             console.log(err);
             return next(err);
         }
         res.json(data);
-    })
+    }
+    )
   },
 
 
 
   addImage: function(req, res, next) {
-    var fstream;
-    // var fashion = req.body.fashionQuestion
-    // console.log(fashion)
-      req.pipe(req.busboy);
-      req.busboy.on('file', function (fieldname, file, filename) {
-        console.log("Uploading: " + filename);
-        console.log(fieldname)
-        fstream = fs.createWriteStream(__dirname + '/uploads/' + filename);
-        file.pipe(fstream);
-        fstream.on('close', function () {
-            res.redirect('back');
-        });
-        var newDocument = new ImageModel( { outfit: filename} );
-        newDocument.save(function(err) { if( err ) throw new Error( 'There was an error while saving to the database.' ) })
-    });
-  }
+    console.log(req.body)
+
+    var image = req.body.pics
+    var questionF = req.body.questions
+    var newDocument = new ImageModel( { outfit: image, question: questionF } );
+    newDocument.save(function(err) { if( err ) throw new Error( 'There was an error while saving to the database.' ) })
+    }
 
 }
 
@@ -110,3 +94,20 @@ module.exports = {
 //         res.json(image);
 //     });
 // };
+
+
+
+
+
+ // var fstream;
+    // var fashion = req.body.fashionQuestion
+    // console.log(fashion)
+    //   req.pipe(req.busboy);
+    //   req.busboy.on('file', function (fieldname, file, filename) {
+    //     console.log("Uploading: " + filename);
+    //     console.log(fieldname)
+    //     fstream = fs.createWriteStream(__dirname + '/uploads/' + filename);
+    //     file.pipe(fstream);
+    //     fstream.on('close', function () {
+    //         res.redirect('back');
+    //     });

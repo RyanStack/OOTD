@@ -32,6 +32,23 @@ body {
   background-color: pink !important;
 }
 
+#fashionQuestion {
+  display: none;
+  text-align: center;
+}
+
+#fashionQuestionInput {
+ width: 30%;
+ margin-top: 20PX;
+ height: 10%;
+}
+
+#submitQuestion {
+  height: 20px;
+  width: 100px;
+  background: pink;
+}
+
 .navbar-inverse {
   border: none;
   background-color: #2b2b2b;
@@ -39,6 +56,13 @@ body {
 
 .dropzone span {
   /*display: none;*/
+}
+
+#uploadHint {
+  text-align: center;
+  color: #ccc;
+  padding-top: 150px;
+  font-size: 30px;
 }
 
 .navPink {
@@ -233,11 +257,13 @@ article {
   display: none;
 }
 #holder.hover {
-  border: 10px dashed pink;
+  border: 10px dashed #0c0;
 }
 #holder img {
   display: block;
   margin: 10px auto;
+  float: left;
+  margin-left: 10px;
 }
 #holder p {
   margin: 10px;

@@ -51,13 +51,20 @@
     <div class="container">
 
 
-      <div ng-class="{tint: isTint}">
+      <div ng-controller="DND" ng-class="{tint: isTint}">
         <div id="holder">
-          <div id ="uploadOptions">
+          <div id="uploadHint">
+            DropZone
+          </div>
+          <div id="fashionQuestion">
+            <input id="fashionQuestionInput" type="textarea" name="fashionQuestion" value="what is your fashion question?" required>
+            <button ng-click="process()" id="submitQuestion">PerfectFit It!</button>
+          </div>
+          <!-- <div id ="uploadOptions">
             <h3 id="uploadHeader">Upload Outfit</h3>
             <div id="compUpload"><input id="fileUploadB" type="file"></div>
             <div id="dragUpload"><p>drag and drop</p></div>
-          </div>
+          </div> -->
         </div>
 
         <p id="upload" class="hidden">
@@ -66,9 +73,9 @@
             <input type="file">
           </label>
         </p>
-        <p id="filereader">File API & FileReader API not supported</p>
-        <p id="formdata">XHR2's FormData is not supported</p>
-        <p id="progress">XHR2's upload progress isn't supported</p>
+        <p id="filereader" ng-show="browserTest1">File API & FileReader API not supported</p>
+        <p id="formdata" ng-show="browserTest2">XHR2's FormData is not supported</p>
+        <p id="progress" ng-show="browserTest3">XHR2's upload progress isn't supported</p>
 
       </div>
 
@@ -76,7 +83,7 @@
         <!-- <div ng-class="{tint: isTint}"></div> -->
         <a class ="nextBetch" href ng-click="changePicNumber()"> >></a>
         <div id="leftColumn">
-          <div id="pictureTitle"> <-- Insert Fashion Question --></div>
+          <div id="pictureTitle"> {{pics[picNumber].question}}</div>
           <div id="picturezone">
             <img class="individualPics" ng-src="{{pics[picNumber].outfit}}" />
           </div>
@@ -97,5 +104,6 @@
   <script type="text/javascript" src="js/client/application.js"></script>
   <script type="text/javascript" src="js/client/controller.js"></script>
   <script type="text/javascript" src="js/client/help.js"></script>
+ <!-- <script type="text/javascript" src="js/client/dnd.js"></script> -->
   </body>
 </html>
