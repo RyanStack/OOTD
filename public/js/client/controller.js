@@ -1,23 +1,20 @@
 
 
 
-app.controller("UploadPrompter", function($scope) {
+app.controller("UploadPrompter", function($scope, $http) {
 
   $scope.isTint = false;
   $scope.isHolder = false;
 
   $scope.makeTint = function() {
     $scope.isTint = true;
+    $scope.isHolder = true;
     document.getElementsByTagName('body')[0].style.overflow = "hidden"
     // console.log(body)
-    var dropper = document.getElementById('holder').style.display = "block";
+    // var dropper = document.getElementById('holder').style.display = "block";
     // var options = document.getElementById('uploadOptions').style.display = "block";
-  }
+  };
 
-})
-
-
-app.controller("DND", function($scope, $http) {
   $scope.process = function() {
     var pic = document.querySelector('.PerfectPic').src
     var question = document.querySelector('#fashionQuestionInput').value
@@ -25,10 +22,27 @@ app.controller("DND", function($scope, $http) {
     $http.post('/file-upload', data).success(function(data) {
       console.log(data)
     });
+    $scope.isTint = false;
+    $scope.isHolder = false;
+    document.getElementsByTagName('body')[0].style.overflow = ""
 
   }
 
 })
+
+
+// app.controller("DND", function($scope, $http) {
+//   $scope.process = function() {
+//     var pic = document.querySelector('.PerfectPic').src
+//     var question = document.querySelector('#fashionQuestionInput').value
+//     var data = {pics: pic, questions: question}
+//     $http.post('/file-upload', data).success(function(data) {
+//       console.log(data)
+//     });
+
+//   }
+
+// })
 
 // app.controller("DragDropCtrl", function($scope) {
 //   $scope.tests = {
@@ -78,6 +92,17 @@ app.controller("PercentFitController", function($scope, $http) {
   });
   $scope.changePicNumber = function() {
     $scope.picNumber = $scope.picNumber + 1
-  };
-});
-console.log("yo")
+  }
+  $scope.review = {};
+  $scope.addReview = function() {
+    $scope.review.date = Date.now();
+    console.log($scope.pics)
+    console.log($scope.picNumber)
+    // debugger
+    $scope.pics[$scope.picNumber].comments.push($scope.review);
+    var information = {text: $scope.review, picID: $scope.pics[$scope.picNumber]._id}
+    $http.post('/comments', information).success(function(data) {})
+    $scope.review = {};
+  }
+
+})

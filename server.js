@@ -20,6 +20,7 @@ app.get('/', function(req, resp) {
 }); // set up an HTML testing zone
 app.post('/file-upload', database.addImage); // endpoint to post new images
 app.get('/images', database.getImages); // endpoint to get list of images
+app.post('/comments', database.addComment); //endpoint to add fashion comment
 
 app.listen(5000, function () {
     console.log('OOTD server listening on port 5000');

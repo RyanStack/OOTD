@@ -38,7 +38,7 @@ module.exports = {
     //configuring the Database Schema
 
     OOTDSchema = new mongoose.Schema(
-      { outfit: { type: String}, question: {type: String} });
+      { outfit: String, question: String, comments: [{ note: String, author: String, date: Date }] });
 
     ImageModel = mongoose.model('Pics', OOTDSchema);
 
@@ -67,7 +67,29 @@ module.exports = {
     var questionF = req.body.questions
     var newDocument = new ImageModel( { outfit: image, question: questionF } );
     newDocument.save(function(err) { if( err ) throw new Error( 'There was an error while saving to the database.' ) })
+    },
+
+
+    addComment: function(req, res, next) {
+      console.log(req.body)
+      var textServer = req.body.text
+      console.log(textServer)
+      var newComment = {
+      note: textServer.note,
+      date: textServer.date
+    };
+    console.log(req.body.picID)
+    console.log(newComment)
+      ImageModel.update({ _id: req.body.picID}, {$push: { comments : newComment }}, {upsert:true}, function(err, data) {
+          if (err) { console.log(err) }
+      });
+
+      // Event.update({ tweet: text }, { $inc: { count: 1 }}, { upsert: true }, function(err) {
+      // if (err) { console.log(err) }
+      // })
+
     }
+
 
 }
 

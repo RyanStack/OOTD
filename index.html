@@ -51,8 +51,8 @@
     <div class="container">
 
 
-      <div ng-controller="DND" ng-class="{tint: isTint}">
-        <div id="holder">
+      <div ng-class="{tint: isTint}">
+        <div ng-show="isHolder" id="holder">
           <div id="uploadHint">
             DropZone
           </div>
@@ -87,7 +87,25 @@
           <div id="picturezone">
             <img class="individualPics" ng-src="{{pics[picNumber].outfit}}" />
           </div>
-          <div id="comments"> <-- Insert Comments --> </div>
+          <div id="comments">
+            <ul>
+              <h4>Fashion Reviews</h4>
+              <li ng-repeat="review in pics[picNumber].comments">
+                <blockquote>
+                  {{review.note}}
+                 <cite class="clearfix">—{{review.author}} on {{review.date | date}}</cite>
+                </blockquote>
+              </li>
+            </ul>
+            <form name="reviewForm" ng-submit="addReview(image)">
+              <fieldset class="form-group">
+                <textarea ng-model="review.note" class="form-control" placeholder="Write a short review of the outfit..." title="Review" required></textarea>
+              </fieldset>
+              <fieldset class="form-group">
+                <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+              </fieldset>
+            </form>
+          </div>
         </div>
         <div id="retailLinks"> <-- Retail Links --></div>
       </div>

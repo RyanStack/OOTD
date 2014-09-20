@@ -254,7 +254,7 @@ article {
   width: 80%;
   min-height: 80%;
   margin: 20px auto;
-  display: none;
+  display: block;
 }
 #holder.hover {
   border: 10px dashed #0c0;
