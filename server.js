@@ -5,6 +5,8 @@ var express = require('express'),
     busboy = require('connect-busboy'),
     app = express(),
     bodyParser = require('body-parser');
+    passport = require('passport');
+    localStrategy = require('passport-local').Strategy;
     // dnd = require("angular-draganddrop")
 
 database.connectDb();

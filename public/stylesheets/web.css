@@ -113,7 +113,7 @@ h3 {
   display: block;
   height: 50px;
   width: 100%;
-  color: grey;
+  color: ghostwhite;
   text-align: center;
   padding-top: 13px;
 }
@@ -139,8 +139,10 @@ h3 {
  height: 100%;
  width: 80%;
  margin: auto;
+ margin-bottom: 20px;
  background-color: #2b2b2b;
  position: relative;
+ overflow: auto;
 }
 
 #retailLinks {
@@ -173,15 +175,26 @@ h3 {
 
 #comments {
   display: block;
-  height: 120px;
-  border: 2px solid black;
+/* height: 120px; */
+/* border: 2px solid black; */
   width: 100%;
   position: relative;
 /* margin-left: 50px; */
   margin-top: 10px;
   color: grey;
-  text-align: center;
-  padding: 45px;
+/* text-align: center; */
+/* padding: 45px; */
+}
+
+#textArea {
+  background-color: black;
+  color: ghostwhite !important;
+}
+
+.fashionResponse {
+  background-color: black;
+  color: ghostwhite;
+  margin: 10px;
 }
 
 .nextBetch {
