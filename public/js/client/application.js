@@ -1,1 +1,1 @@
-var app = angular.module("PercentFitApp", []);
+var app = angular.module("PercentFitApp", ['ui.bootstrap']);

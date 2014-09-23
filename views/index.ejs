@@ -3,6 +3,7 @@
 <html lang="en" ng-app="PercentFitApp">
   <head>
     <script type="text/javascript" src="http://code.angularjs.org/1.2.6/angular.min.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
     <script type="text/javascript" src="js/vendor/dropzone.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,7 +32,7 @@
 
   <body ng-controller="UploadPrompter">
 
-    <div class="navbar navbar-default navbar-inverse " role="navigation">
+    <div ng-controller="DropdownCtrl" class="navbar navbar-default navbar-inverse " role="navigation">
       <div class="container">
         <div class="navbar-header">
           <p class="navbar-brand">Perfect Fit</p>
@@ -41,8 +42,27 @@
             <li class="active" ng-click="makeTint()"><a id="uploadOutfit" href="#">Upload Outfit</a></li>
           </ul>
            <ul class="nav navbar-nav navbar-right">
+            <% if (!user) { %>
           <li><a class="navPink" href="/login">sign in</a></li>
           <li><a class="navPink" href="/signup">sign up</a></li>
+          <%} else { %>
+
+          <li class="dropdown" on-toggle="toggled(open)">
+
+              <a href class="dropdown-toggle">
+                <%=user.local.email %>
+                <div class="arrow-down"></div>
+              </a>
+              <ul class="dropdown-menu">
+                <li ng-repeat="choice in items">
+                  <a href>{{choice}}</a>
+                </li>
+              </ul>
+
+
+          </li>
+          <!-- <li><a class="navPink" href="/dropdown"><%=user.local.email %><div class="arrow-down"></div></a></li> -->
+          <% } %>
         </ul>
         </div><!--/.nav-collapse -->
       </div>

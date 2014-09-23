@@ -30,6 +30,9 @@ app.controller("UploadPrompter", function($scope, $http) {
 
   };
 
+
+
+
   // $scope.makeLogin = function() {
   //   $scope.isTint = true;
   //   document.getElementsByTagName('body')[0].style.overflow = "hidden"
@@ -60,6 +63,29 @@ app.controller("UploadPrompter", function($scope, $http) {
   // }
 
 });
+
+
+app.controller("DropdownCtrl", function ($scope) {
+  $scope.items = [
+  'My Images',
+  'Notifications',
+  'Logout'
+  ];
+
+  $scope.status = {
+    isopen: false
+  };
+
+  $scope.toggled = function(open) {
+    console.log('Dropdown is now: ', open);
+  };
+
+  $scope.toggleDropdown = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    $scope.status.isopen = !$scope.status.isopen;
+  };
+})
 
 
 // app.controller("AuthControllerR", function($scope, $http) {
