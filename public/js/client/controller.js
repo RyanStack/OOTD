@@ -5,6 +5,8 @@ app.controller("UploadPrompter", function($scope, $http) {
 
   $scope.isTint = false;
   $scope.isHolder = false;
+  $scope.isLogin = false;
+  $scope.isRegister = false;
 
   $scope.makeTint = function() {
     $scope.isTint = true;
@@ -26,10 +28,59 @@ app.controller("UploadPrompter", function($scope, $http) {
     $scope.isHolder = false;
     document.getElementsByTagName('body')[0].style.overflow = ""
 
-  }
+  };
 
-})
+  // $scope.makeLogin = function() {
+  //   $scope.isTint = true;
+  //   document.getElementsByTagName('body')[0].style.overflow = "hidden"
+  //   $scope.isLogin = true;
+  // };
 
+  // $scope.makeRegister = function() {
+  //   $scope.isTint = true;
+  //   document.getElementsByTagName('body')[0].style.overflow = "hidden"
+  //   $scope.isRegister = true;
+  // };
+
+  // $scope.register = {};
+  // $scope.submitRegister = function() {
+  //   $http.post('/register', $scope.register).success(function(data) {
+  //     $scope.isRegister = false;
+  //     $scope.isTint = false;
+  //   })
+  // };
+
+  // $scope.login = {};
+  // $scope.submitLogin = function() {
+  //   $http.post('/login', $scope.login).success(function(data) {
+  //     $scope.isLogin = false;
+  //     $scope.isTint = false;
+  //     debugger
+  //   })
+  // }
+
+});
+
+
+// app.controller("AuthControllerR", function($scope, $http) {
+//   $scope.register = {};
+//   $scope.submitRegister = function() {
+//     $http.post('/register', $scope.register).success(function(data) {
+//       $scope.isRegister = false;
+//       $scope.isTint = false;
+//     })
+//   }
+// })
+
+
+// app.controller("AuthControllerL", function($scope, $http) {
+//   $scope.login = {};
+//   $scope.submitLogin = function() {
+//     $http.post('/login', $scope.login).success(function(data) {
+//       console.log(data)
+//     })
+//   }
+// })
 
 // app.controller("DND", function($scope, $http) {
 //   $scope.process = function() {

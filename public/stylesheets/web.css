@@ -79,6 +79,20 @@ header {
   background-color: grey;
 }
 
+#loginMenu {
+  margin-left: 35%;
+  margin-top: 15%;
+  width: 40%;
+
+}
+
+#registerMenu {
+  margin-left: 35%;
+  margin-top: 15%;
+  width: 40%;
+
+}
+
 #headerStack {
   color: ghostwhite;
   font-size: .75em;
@@ -282,6 +296,8 @@ article {
   margin: 10px;
   font-size: 14px;
 }
+
+
 progress {
   width: 100%;
 }

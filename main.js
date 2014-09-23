@@ -1,97 +1,87 @@
-var fs = require('fs'),
-    mongoose = require('mongoose'),
-    OOTDSchema,
-    Images;
-
-// Create the "uploads" folder if it doesn't exist
-fs.exists(__dirname + '/uploads', function (exists) {
-    if (!exists) {
-        console.log('Creating directory ' + __dirname + '/uploads');
-        fs.mkdir(__dirname + '/uploads', function (err) {
-            if (err) {
-                console.log('Error creating ' + __dirname + '/uploads');
-                process.exit(1);
-            }
-        })
-    }
-});
-
-// Connect to database
-module.exports = {
-  connectDb: function(){
-
-    var uri = "mongodb://ryanstack:ootd123@ds035310.mongolab.com:35310/ootd"
-    mongoose.connect(uri);
-    var db = mongoose.connection;
-    db.on('open', function () {
-      console.log('Mongoose default connection open to ' + uri);
-    });
-
-    db.on('error',function (err) {
-      console.log('Mongoose default connection error: ' + err);
-    });
-
-    db.on('disconnected', function () {
-      console.log('Mongoose default connection disconnected');
-    });
-
-    //configuring the Database Schema
-
-    OOTDSchema = new mongoose.Schema(
-      { outfit: String, question: String, comments: [{ note: String, author: String, date: Date }] });
-
-    ImageModel = mongoose.model('Pics', OOTDSchema);
-
-  },
+// var fs = require('fs'),
+//     mongoose = require('mongoose'),
+//     passportLocalMongoose = require('passport-local-mongoose'),
+//     OOTDSchema,
+//     Images;
 
 
-  getImages: function(req, res, next) {
+// // Connect to database
+// module.exports = {
+//   connectDb: function(){
 
-    ImageModel.find({}).limit(20).exec(
-      function (err, data) {
-        if (err) {
-            console.log(err);
-            return next(err);
-        }
-        res.json(data);
-    }
-    )
-  },
+//     var uri = "mongodb://ryanstack:ootd123@ds035310.mongolab.com:35310/ootd"
+//     mongoose.connect(uri);
+//     var db = mongoose.connection;
+//     db.on('open', function () {
+//       console.log('Mongoose default connection open to ' + uri);
+//     });
+
+//     db.on('error',function (err) {
+//       console.log('Mongoose default connection error: ' + err);
+//     });
+
+//     db.on('disconnected', function () {
+//       console.log('Mongoose default connection disconnected');
+//     });
+
+//     //configuring the Database Schema
+
+//     OOTDSchema = new mongoose.Schema(
+//       { outfit: String, question: String, comments: [{ note: String, author: String, date: Date }] });
+
+
+//     ImageModel = mongoose.model('Pics', OOTDSchema);
+
+//   },
+
+
+//   getImages: function(req, res, next) {
+
+//     ImageModel.find({}).limit(20).exec(
+//       function (err, data) {
+//         if (err) {
+//             console.log(err);
+//             return next(err);
+//         }
+//         res.json(data);
+//     }
+//     )
+//   },
 
 
 
-  addImage: function(req, res, next) {
-    console.log(req.body)
+//   addImage: function(req, res, next) {
+//     console.log(req.body)
 
-    var image = req.body.pics
-    var questionF = req.body.questions
-    var newDocument = new ImageModel( { outfit: image, question: questionF } );
-    newDocument.save(function(err) { if( err ) throw new Error( 'There was an error while saving to the database.' ) })
-    },
-
-
-    addComment: function(req, res, next) {
-      console.log(req.body)
-      var textServer = req.body.text
-      console.log(textServer)
-      var newComment = {
-      note: textServer.note,
-      date: textServer.date
-    };
-    console.log(req.body.picID)
-    console.log(newComment)
-      ImageModel.update({ _id: req.body.picID}, {$push: { comments : newComment }}, {upsert:true}, function(err, data) {
-          if (err) { console.log(err) }
-      });
-
-      // Event.update({ tweet: text }, { $inc: { count: 1 }}, { upsert: true }, function(err) {
-      // if (err) { console.log(err) }
-      // })
-
-    }
+//     var image = req.body.pics
+//     var questionF = req.body.questions
+//     var newDocument = new ImageModel( { outfit: image, question: questionF } );
+//     newDocument.save(function(err) { if( err ) throw new Error( 'There was an error while saving to the database.' ) })
+//     },
 
 
-}
+//     addComment: function(req, res, next) {
+//       console.log(req.body)
+//       var textServer = req.body.text
+//       console.log(textServer)
+//       var newComment = {
+//       note: textServer.note,
+//       date: textServer.date
+//     };
+//     console.log(req.body.picID)
+//     console.log(newComment)
+//       ImageModel.update({ _id: req.body.picID}, {$push: { comments : newComment }}, {upsert:true}, function(err, data) {
+//           if (err) { console.log(err) }
+//       });
+
+//       // Event.update({ tweet: text }, { $inc: { count: 1 }}, { upsert: true }, function(err) {
+//       // if (err) { console.log(err) }
+//       // })
+
+//     }
+
+
+// }
 
 
     // console.log("upload");
@@ -133,3 +123,16 @@ module.exports = {
     //     fstream.on('close', function () {
     //         res.redirect('back');
     //     });
+
+
+// fs.exists(__dirname + '/uploads', function (exists) {
+//     if (!exists) {
+//         console.log('Creating directory ' + __dirname + '/uploads');
+//         fs.mkdir(__dirname + '/uploads', function (err) {
+//             if (err) {
+//                 console.log('Error creating ' + __dirname + '/uploads');
+//                 process.exit(1);
+//             }
+//         })
+//     }
+// });
