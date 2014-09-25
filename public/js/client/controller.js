@@ -7,14 +7,38 @@ app.controller("UploadPrompter", function($scope, $http) {
   $scope.isHolder = false;
   $scope.isLogin = false;
   $scope.isRegister = false;
+  $scope.isPerson = true;
+  $scope.isMyPage = false;
 
   $scope.makeTint = function() {
-    $scope.isTint = true;
-    $scope.isHolder = true;
-    document.getElementsByTagName('body')[0].style.overflow = "hidden"
+    $http.get('/userCheck').success(function(data) {
+      console.log("made it too callback")
+      if (data.check == "nope") {
+        $scope.makeRegister();
+      } else {
+      $scope.isTint = true;
+      $scope.isHolder = true;
+      document.getElementsByTagName('body')[0].style.overflow = "hidden";
+    }
+    });
+    // $scope.isTint = true;
+    // $scope.isHolder = true;
+    // document.getElementsByTagName('body')[0].style.overflow = "hidden"
     // console.log(body)
     // var dropper = document.getElementById('holder').style.display = "block";
     // var options = document.getElementById('uploadOptions').style.display = "block";
+  };
+
+  $scope.makeRegister = function() {
+    $scope.isTint = true;
+    document.getElementsByTagName('body')[0].style.overflow = "hidden"
+    $scope.isRegister = true;
+  };
+
+  $scope.makeLogin = function() {
+    $scope.isTint = true;
+    document.getElementsByTagName('body')[0].style.overflow = "hidden"
+    $scope.isLogin = true;
   };
 
   $scope.process = function() {
@@ -28,6 +52,29 @@ app.controller("UploadPrompter", function($scope, $http) {
     $scope.isHolder = false;
     document.getElementsByTagName('body')[0].style.overflow = ""
 
+  };
+
+  $scope.status = {
+    isopen: false
+  };
+
+  $scope.toggled = function(open) {
+    console.log('Dropdown is now: ', open);
+  };
+
+  $scope.toggleDropdown = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    $scope.status.isopen = !$scope.status.isopen;
+  };
+
+  $scope.makeMyPage = function() {
+    $scope.isPerson = false;
+    $scope.isMyPage = true;
+    $http.get('/findMyPics').success(function(data) {
+      console.log(data)
+      $scope.pictures = data;
+    });
   };
 
 
@@ -167,7 +214,14 @@ app.controller("PercentFitController", function($scope, $http) {
     console.log(data)
     $scope.pics = data;
   });
-  $scope.changePicNumber = function() {
+  $scope.changePicNumberLike = function() {
+    var informationLike = {feedback: "yes", picID: $scope.pics[$scope.picNumber]._id}
+    $http.post('/like', informationLike).success(function(data) {})
+    $scope.picNumber = $scope.picNumber + 1
+  }
+  $scope.changePicNumberDisLike = function() {
+    var informationDisLike = {feedback: "no", picID: $scope.pics[$scope.picNumber]._id}
+    $http.post('/dislike', informationDisLike).success(function(data) {})
     $scope.picNumber = $scope.picNumber + 1
   }
   $scope.review = {};

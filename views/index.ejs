@@ -43,8 +43,8 @@
           </ul>
            <ul class="nav navbar-nav navbar-right">
             <% if (!user) { %>
-          <li><a class="navPink" href="/login">sign in</a></li>
-          <li><a class="navPink" href="/signup">sign up</a></li>
+          <li><a class="navPink" ng-click="makeLogin()" href=>sign in</a></li>
+          <li><a class="navPink" ng-click="makeRegister()" href >sign up</a></li>
           <%} else { %>
 
           <li class="dropdown" on-toggle="toggled(open)">
@@ -54,8 +54,14 @@
                 <div class="arrow-down"></div>
               </a>
               <ul class="dropdown-menu">
-                <li ng-repeat="choice in items">
-                  <a href>{{choice}}</a>
+                <li>
+                  <a ng-click="makeMyPage()"href>My Images</a>
+                </li>
+                <li>
+                  <a href>Notifications</a>
+                </li>
+                <li>
+                  <a href>Logout</a>
                 </li>
               </ul>
 
@@ -102,6 +108,83 @@
         <p id="formdata" ng-show="browserTest2">XHR2's FormData is not supported</p>
         <p id="progress" ng-show="browserTest3">XHR2's upload progress isn't supported</p>
 
+
+        <div ng-show="isRegister" id="registerUser">
+
+          <div class="col-sm-6 col-sm-offset-3" id="registerForm">
+
+            <h1><span class="fa fa-sign-in"></span> Signup</h1>
+
+            <!-- show any messages that come back with authentication -->
+            <% if (message.length > 0) { %>
+            <div class="alert alert-danger"><%= message %></div>
+            <% } %>
+
+            <!-- LOGIN FORM -->
+            <form action="/signup" method="post">
+              <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" name="email">
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" name="password">
+              </div>
+
+              <button type="submit" class="btn btn-warning btn-lg">Signup</button>
+            </form>
+
+            <hr>
+
+            <p>Already have an account? <a href="/login">Login</a></p>
+            <p>Or go <a href="/">home</a>.</p>
+
+          </div>
+
+      </div>
+
+      <div ng-show="isLogin" id="LoginUser">
+      <div class="col-sm-6 col-sm-offset-3" id="loginDetail">
+
+        <h1><span class="fa fa-sign-in"></span> Login</h1>
+
+        <!-- show any messages that come back with authentication -->
+        <% if (message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+        <% } %>
+
+        <!-- LOGIN FORM -->
+        <form action="/login" method="post">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" name="email">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password">
+          </div>
+
+          <button type="submit" class="btn btn-warning btn-lg">Login</button>
+        </form>
+
+        <hr>
+
+        <p>Need an account? <a href="/signup">Signup</a></p>
+        <p>Or go <a href="/">home</a>.</p>
+
+      </div>
+    </div>
+
+
+
+
+
+    </div>
+
+      <div ng-show="isMyPage" id="myPage">
+        <div id="innerRectangle">
+        <li ng-repeat="picture in pictures" class="listRepeat"><img class="imageRepeat" ng-src="{{pictures[0].outfit}}"/></li>
+        </div>
       </div>
 
 
@@ -110,9 +193,10 @@
 
 
 
-      <div id ="personZone" ng-controller="PercentFitController as PercentCtrl">
+      <div ng-show="isPerson" id ="personZone" ng-controller="PercentFitController as PercentCtrl">
         <!-- <div ng-class="{tint: isTint}"></div> -->
-        <a class ="nextBetch" href ng-click="changePicNumber()"> >></a>
+        <button class ="thumbsUp" ng-click="changePicNumberLike()"> Yes</button>
+        <button class ="thumbsDown" ng-click="changePicNumberDisLike()"> No</button>
         <div id="leftColumn">
           <div id="pictureTitle"> {{pics[picNumber].question}}</div>
           <div id="picturezone">
