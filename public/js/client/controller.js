@@ -48,6 +48,12 @@ app.controller("UploadPrompter", function($scope, $http) {
     $scope.isLogin = true;
   };
 
+  $scope.removeMyLogin = function() {
+    $scope.isTint = false;
+    document.getElementsByTagName('body')[0].style.overflow = ""
+    $scope.isLogin = false;
+  };
+
   $scope.process = function() {
     var pic = document.querySelector('.PerfectPic').src
     var question = document.querySelector('#fashionQuestionInput').value

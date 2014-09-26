@@ -94,9 +94,6 @@ header {
 
 #registerForm {
   background-color: #212121;
-  color: grey;
-  width: 75%;
-  margin: auto;
 }
 
 #registerUser h1 {
@@ -105,9 +102,11 @@ header {
 }
 
 #registerUser {
+  background-color: #212121;
+  color: grey;
+  width: 75%;
   margin: auto;
   margin-top: 10%;
-  width: 40%;
 
 }
 
@@ -279,6 +278,21 @@ header {
 #leaveMyRegister h1 {
   padding: 0px;
 }
+
+#leaveMyLogin {
+  width: 100%;
+  text-align: right;
+  color: grey;
+  display: block;
+  height: 3%;
+  background-color: #212121;
+  padding-top: .5%;
+  font-weight: bolder;
+}
+#leaveMyRegister h1 {
+  padding: 0px;
+}
+
 
 .clearfix {
   font-size: 12px;
