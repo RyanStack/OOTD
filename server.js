@@ -63,9 +63,9 @@ app.use(express.static("public", __dirname + "/public"))
 
 
 
+var port = process.env.PORT || 5000;
 
-
-app.listen(5000, function () {
+app.listen(port, function () {
     console.log('OOTD server listening on port 5000');
 });
 
