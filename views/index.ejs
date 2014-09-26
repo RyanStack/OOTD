@@ -35,7 +35,7 @@
     <div ng-controller="DropdownCtrl" class="navbar navbar-default navbar-inverse " role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <p class="navbar-brand">Perfect Fit</p>
+          <p class="navbar-brand"><a class="navPink" href="/">Percent Fit</a></p>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -55,7 +55,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a ng-click="makeMyPage()"href>My Images</a>
+                  <a ng-click="makeMyPage()" href>My Images</a>
                 </li>
                 <li>
                   <a href>Notifications</a>
@@ -112,6 +112,7 @@
         <div ng-show="isRegister" id="registerUser">
 
           <div class="col-sm-6 col-sm-offset-3" id="registerForm">
+            <div id="leaveMyRegister"><a class="navGrey" ng-click="removeMyRegister()" href>x</a></div>
 
             <h1><span class="fa fa-sign-in"></span> Signup</h1>
 
@@ -183,8 +184,29 @@
 
       <div ng-show="isMyPage" id="myPage">
         <div id="innerRectangle">
-        <li ng-repeat="picture in pictures" class="listRepeat"><img class="imageRepeat" ng-src="{{pictures[0].outfit}}"/></li>
+        <a href ng-click="makeIndividualPicture(picture)" ng-repeat="picture in pictures" class="listRepeat"><div class="picBorder"><img class="imageRepeat" ng-src="{{picture.outfit}}"/></div></a>
         </div>
+
+        <div ng-class="{tint: isTint}" ng-show="isMyPic">
+          <div id="myPicture">
+            <div id="leaveMyPic"><a class="navPink" ng-click="removeMyPic()" href>x</a></div>
+            <img ng-src="{{clickedPicture.outfit}}"/>
+            <div id="picComments">
+              <h2>{{clickedPicture.question}}</h2>
+              <div id="likeContainer">
+                <p class="likes">Likes: {{clickedPicture.likes}}</p>
+                <p class="likes">Dislikes: {{clickedPicture.dislikes}}</p>
+              </div>
+              <ul id="commentBox">
+                <li class="commentOne" ng-repeat="comment in clickedPicture.comments">
+                  {{comment.note}}
+                  <cite class="clearfix">—{{comment.author}} on {{comment.date | date}}</cite>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
       </div>
 
 

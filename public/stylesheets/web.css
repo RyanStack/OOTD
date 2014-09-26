@@ -67,6 +67,12 @@ body {
 
 .navPink {
   color: pink !important;
+  text-decoration: none !important;
+}
+
+.navGrey {
+  color: grey !important;
+  text-decoration: none !important;
 }
 
 header {
@@ -136,34 +142,147 @@ header {
 
 #myPage {
   width: 75%;
-  height: 75%;
+  height: 90%;
   background-color: #212121;
   margin: auto;
   border-radius: 5px;
 }
 
 .listRepeat {
-  height: 50%;
+  height: 40%;
   width: 25%;
   display: inline-block;
-  margin: 5%;
+  margin: 3%;
 }
 
 .imageRepeat {
-  height: 100%;
+ height: 95%;
+ width: 95%;
+ margin-left: 2.5%;
+ margin-top: 2.5%;
+}
+
+.picBorder {
   width: 100%;
+  height: 100%;
+  background-color: #212121;
+  display: block;
+  position: relative;
+}
+
+.picBorder:hover {
+  background-color: pink;
 }
 
 #innerRectangle {
-  height: 85%;
+  height: 95%;
   width: 85%;
   margin: auto;
   background-color: black;
   display: block;
   position: relative;
   top: 5%;
+  overflow-y: scroll;
 }
 
+#myPicture {
+  height: 80%;
+  width: 90%;
+  border: 1px solid grey;
+  border-radius: 3px;
+  margin: auto;
+  margin-top: 3%;
+  background-color: #212121;
+}
+
+#myPicture img {
+  width: 60%;
+  height: 87%;
+  display: inline-block;
+  margin-left: 2.5%;
+}
+
+#picComments {
+  width: 35%;
+  height: 87%;
+  display: inline-block;
+  float: right;
+  color: pink;
+  background-color: #212121;
+
+}
+
+#likeContainer {
+  margin: auto;
+  text-align: center;
+  margin-top: 5%;
+}
+
+#picComments h2 {
+  text-align: center;
+  background-color: black;
+  width: 90%;
+  margin: auto;
+  margin-top: 2%;
+  padding: 2%;
+  border: 2px solid grey;
+  border-radius: 4px;
+}
+
+.likes {
+  display: inline-block;
+  text-align: center;
+  background-color: black;
+/* width: 90%; */
+/* margin-top: 2%; */
+  padding: 2%;
+  border: 2px solid grey;
+  border-radius: 4px;
+  margin: 3%;
+}
+
+#commentBox {
+  width: 95%;
+  margin: auto;
+  overflow-y: scroll;
+  height: 70%;
+}
+
+.commentOne {
+  background-color: black;
+  margin: 1%;
+  padding: 1%;
+}
+
+#leaveMyPic {
+  width: 100%;
+  text-align: right;
+  color: grey;
+  display: block;
+  height: 7%;
+  background-color: #212121;
+  padding-right: 1.5%;
+  padding-top: .5%;
+  font-weight: bolder;
+}
+
+#leaveMyRegister {
+  width: 100%;
+  text-align: right;
+  color: grey;
+  display: block;
+  height: 3%;
+  background-color: #212121;
+  padding-top: .5%;
+  font-weight: bolder;
+}
+#leaveMyRegister h1 {
+  padding: 0px;
+}
+
+.clearfix {
+  font-size: 12px;
+}
 
 #headerStack {
   color: ghostwhite;
@@ -194,7 +313,7 @@ h3 {
 }
 
 #pictureTitle {
-  border: 2px solid black;
+  /*border: 2px solid black;*/
   border-radius: 4px;
   display: block;
   height: 50px;
@@ -205,7 +324,7 @@ h3 {
 }
 
 #picturezone {
-  border: 2px solid black;
+  /*border: 2px solid black;*/
   border-radius: 4px;
   display: block;
   height: 250px;

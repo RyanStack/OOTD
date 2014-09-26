@@ -9,6 +9,7 @@ app.controller("UploadPrompter", function($scope, $http) {
   $scope.isRegister = false;
   $scope.isPerson = true;
   $scope.isMyPage = false;
+  $scope.isMyPic = false;
 
   $scope.makeTint = function() {
     $http.get('/userCheck').success(function(data) {
@@ -34,6 +35,12 @@ app.controller("UploadPrompter", function($scope, $http) {
     document.getElementsByTagName('body')[0].style.overflow = "hidden"
     $scope.isRegister = true;
   };
+
+  $scope.removeMyRegister = function() {
+    $scope.isTint = false;
+    document.getElementsByTagName('body')[0].style.overflow = ""
+    $scope.isRegister = false;
+  }
 
   $scope.makeLogin = function() {
     $scope.isTint = true;
@@ -69,12 +76,24 @@ app.controller("UploadPrompter", function($scope, $http) {
   };
 
   $scope.makeMyPage = function() {
+    $scope.status.isopen = false;
     $scope.isPerson = false;
     $scope.isMyPage = true;
     $http.get('/findMyPics').success(function(data) {
       console.log(data)
       $scope.pictures = data;
     });
+  };
+
+  $scope.makeIndividualPicture = function(picture) {
+    $scope.isMyPic = true;
+    $scope.isTint = true;
+    $scope.clickedPicture = picture;
+  };
+
+  $scope.removeMyPic = function() {
+    $scope.isMyPic = false;
+    $scope.isTint = false;
   };
 
 

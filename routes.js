@@ -111,7 +111,8 @@ module.exports = function(app, passport) {
 
 
     app.post('/comments', function(req, res, next) {
-      console.log(req.body)
+      console.log("testing to see if I can get user")
+      console.log(req.user._id)
       var textServer = req.body.text
       console.log(textServer)
       var newComment = {
